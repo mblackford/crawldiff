@@ -1,7 +1,5 @@
 # crawldiff
 
-## About
-
 **crawlldiff** will help with migrating websites from one system to another. Will crawl a website and compare it to another, reporting on any differences.
 
 ## Installation
