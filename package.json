@@ -15,13 +15,6 @@
   "author": "Matthew Blackford",
   "license": "ISC",
   "dependencies": {
-    "@types/cli-progress": "^3.8.0",
-    "@types/cli-table": "^0.3.0",
-    "@types/jsdom": "^16.2.5",
-    "@types/node": "^14.14.8",
-    "@types/node-fetch": "^2.5.7",
-    "@types/string-similarity": "^4.0.0",
-    "@types/url-parse": "^1.4.3",
     "chalk": "^4.1.0",
     "clear": "^0.1.0",
     "cli-diff": "^1.0.0",
@@ -35,6 +28,13 @@
     "url-parse": "^1.4.7"
   },
   "devDependencies": {
+    "@types/cli-progress": "^3.8.0",
+    "@types/cli-table": "^0.3.0",
+    "@types/jsdom": "^16.2.5",
+    "@types/node": "^14.14.8",
+    "@types/node-fetch": "^2.5.7",
+    "@types/string-similarity": "^4.0.0",
+    "@types/url-parse": "^1.4.3",
     "ts-node": "^9.0.0",
     "ts-node-dev": "^1.0.0",
     "typescript": "^4.0.5",
