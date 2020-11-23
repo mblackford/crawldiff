@@ -1,10 +1,10 @@
-About
------
+# crawldiff
+
+## About
 
 **crawlldiff** will help with migrating websites from one system to another. Will crawl a website and compare it to another, reporting on any differences.
 
-Installation
-------------
+## Installation
 
 Add this to your `composer.json` file:
 
@@ -12,14 +12,11 @@ Add this to your `composer.json` file:
   npm install crawldiff
 ```
 
-Configuration
--------------
+## Configuration
 
 No configuration necessary.
 
-
-Usage
------
+## Usage
 
 Usage: `npx crawldiff [options] <start> <comparison>`
 
@@ -46,7 +43,6 @@ Options:
 |  -h, --help                  | display help for command                                            |
 
 
-Copyright / License
--------------------
+## Copyright / License
 
 See [LICENSE](LICENSE)
