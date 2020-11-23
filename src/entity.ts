@@ -30,7 +30,7 @@ class Entity {
   parseLinks(): Array<Link> {
     // Find all the selected elements
     const dom = this.buildDom()
-    const domLinks: Array<any> = dom.window.document.querySelectorAll('a')
+    const domLinks: NodeListOf<HTMLAnchorElement> = dom.window.document.querySelectorAll('a')
     const rawLinks =  Object.values(domLinks).map(l => l.href)
 
     // Use the URL library and deconstruct the links, using the current hostname for all 
@@ -58,7 +58,7 @@ class Entity {
   private parseSelector(selector: string, type: LinkType, extractFn: any): Array<Link> {
     // Find all the selected elements
     const dom = this.buildDom()
-    const domLinks: Array<any> = dom.window.document.querySelectorAll(selector)
+    const domLinks: NodeListOf<HTMLAnchorElement> = dom.window.document.querySelectorAll(selector)
     const rawLinks: Array<string> = Object.values(domLinks).map(extractFn)
 
     // Use the URL library and deconstruct the links, using the current hostname for all 

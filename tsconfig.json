@@ -6,7 +6,10 @@
     "outDir": "lib",
     "target": "es2016",
     "module": "commonjs",
-    "lib": ["es2016"],
+    "lib": [
+      "es2016",
+      "dom"
+    ],
     "strict": true,
     "esModuleInterop": true,
     "emitDecoratorMetadata": true,
