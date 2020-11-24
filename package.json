@@ -1,6 +1,6 @@
 {
   "name": "crawldiff",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Crawls a website and compares each page to a different host.",
   "repository": {
     "url": "https://github.com/mblackford/crawldiff"
