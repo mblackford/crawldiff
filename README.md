@@ -4,10 +4,18 @@
 
 ## Installation
 
-Add this to your `composer.json` file:
+You can **optionally** choose to install this tool locally, or just execute it using `npx` and npm will automatically download it on first use.
+
+To install it globally, use:
 
 ```
-  npm install crawldiff
+  npm install -g crawldiff
+```
+
+Or as part of a specific project, use:
+
+```
+  npm install --save-dev crawldiff
 ```
 
 ## Configuration
