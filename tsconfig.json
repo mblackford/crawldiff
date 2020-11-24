@@ -12,8 +12,6 @@
     ],
     "strict": true,
     "esModuleInterop": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
     "strictPropertyInitialization": true,
     "sourceMap": true,
     "noImplicitAny": true,
