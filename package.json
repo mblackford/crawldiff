@@ -5,6 +5,9 @@
   "repository": {
     "url": "https://github.com/mblackford/crawldiff"
   },
+  "files": [
+    "/lib"
+  ],
   "main": "./lib/index.js",
   "bin": "./lib/index.js",
   "scripts": {
