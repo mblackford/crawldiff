@@ -13,7 +13,8 @@
   "scripts": {
     "dev": "ts-node-dev --respawn src/index.ts",
     "start": "ts-node src/index.ts",
-    "build": "tsc -p ."
+    "build": "tsc -p .",
+    "release": "npm run build && np"
   },
   "author": "Matthew Blackford",
   "license": "ISC",
