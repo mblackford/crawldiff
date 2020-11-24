@@ -30,10 +30,10 @@ Crawls a website and compares each page to a different host.
 
 Arguments:
 
-| Argument   | Description                                                        |
-| ---------- | ------------------------------------------------------------------ |
-| start      | the initial page to start crawling (e.g. https://www.example.com/) |
-| comparison | the secondary host to compare against (e.g. new.example.com)       |
+| Argument   | Description                                                            |
+| ---------- | ---------------------------------------------------------------------- |
+| start      | the initial page to start crawling (e.g. https://www.example.com/)     |
+| comparison | the secondary host to compare against (e.g. https://new.example.com/ ) |
 
 Options:
 

@@ -57,12 +57,12 @@ async function run() {
   )
 
   program
-    .name(packageJson.name)
+    .name(`npx ${packageJson.name}`)
     .version(`${packageJson.name} version ${packageJson.version}`, '-v, --version')
     .arguments('<start> <comparison>',)
     .description(packageJson.description, {
       start: 'the initial page to start crawling (e.g. https://www.example.com/)',
-      comparison: 'the secondary host to compare against (e.g. new.example.com)',
+      comparison: 'the secondary host to compare against (e.g. https://new.example.com/)',
     })
     .option('-s, --similarity <0.01-1.0>', 'specifiy the minimum required similarity between hosts', (n: any) => parseFloat(n), 1.0)
     .option('-t, --timeout <integer>', 'the maximum time in seconds to run the crawler', (n: any) => parseInt(n), 60)
