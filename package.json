@@ -27,7 +27,7 @@
     "commander": "^6.2.0",
     "figlet": "^1.5.0",
     "jsdom": "^16.4.0",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^3.1.1",
     "string-similarity": "^4.0.3",
     "url-parse": "^1.4.7"
   },
