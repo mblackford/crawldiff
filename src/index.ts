@@ -20,6 +20,7 @@ async function execute (start: string, comparison: string): Promise<void> {
     comparison,
     program.similarity,
     program.timeout,
+    program.mobile == true,
     program.resources == true,
     program.detailed == true,
     program.verbose == true,
@@ -66,6 +67,7 @@ async function run() {
     })
     .option('-s, --similarity <0.01-1.0>', 'specifiy the minimum required similarity between hosts', (n: any) => parseFloat(n), 1.0)
     .option('-t, --timeout <integer>', 'the maximum time in seconds to run the crawler', (n: any) => parseInt(n), 60)
+    .option('-m, --mobile', 'identify as a mobile device')
     // .option('-u, --user-agent <string>', 'set a custom User-Agent string')
     // .option('-c, --cookies <string>', 'add a custom cookie header string to requests')
     .option('-r, --resources', 'include static resources (such as scripts and styles) in comparison')
