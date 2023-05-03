@@ -1,11 +1,15 @@
 'use strict'
 
+const packageJson = require('../package.json')
+const USER_AGENT_DESKTOP = `${packageJson.name}/${packageJson.version}`
+const USER_AGENT_MOBILE = 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_1 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.0 Mobile/14E304 Safari/602.1'
+
 class Config {
   readonly startingUri: string
   readonly comparisonHost: string
   readonly similarity: number
   readonly timeout: number
-  readonly mobile: boolean
+  readonly userAgent: string
   readonly resources: boolean
   readonly detailed: boolean
   readonly verbose: boolean
@@ -16,7 +20,12 @@ class Config {
     this.comparisonHost = comparison.replace(/\/+$/, '')
     this.similarity = similarity
     this.timeout = timeout
-    this.mobile = mobile
+
+    if (mobile) {
+      this.userAgent = USER_AGENT_MOBILE
+    } else {
+      this.userAgent = USER_AGENT_DESKTOP
+    }
     this.resources = resources
     this.detailed = detailed
     this.verbose = verbose
