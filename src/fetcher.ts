@@ -17,9 +17,13 @@ class Fetcher {
   }
 
   async loadEntity(link: Link): Promise<Entity> {
-    this.logger.debug(`    ... Loading ${link.uri}`)
-
     const headers = this.createHeaders()
+    if (this.config.warmupCache) {
+      this.logger.debug(`    ... Warming up ${link.uri}`)
+      await fetch(link.uri, { 'headers': headers })
+    }
+
+    this.logger.debug(`    ... Loading ${link.uri}`)
     const response = await fetch(link.uri, { 'headers': headers })
     const body = await response.text()
     const contentType = response.headers.get('Content-Type')

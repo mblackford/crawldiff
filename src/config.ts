@@ -14,8 +14,9 @@ class Config {
   readonly detailed: boolean
   readonly verbose: boolean
   readonly debug: boolean
+  readonly warmupCache: boolean
 
-  constructor(start: string, comparison: string, similarity: number, timeout: number, mobile: boolean, resources: boolean, detailed: boolean, verbose: boolean, debug: boolean) {
+  constructor(start: string, comparison: string, similarity: number, timeout: number, mobile: boolean, resources: boolean, detailed: boolean, verbose: boolean, debug: boolean, warmupCache: boolean) {
     this.startingUri = start.replace(/\/+$/, '')
     this.comparisonHost = comparison.replace(/\/+$/, '')
     this.similarity = similarity
@@ -30,6 +31,7 @@ class Config {
     this.detailed = detailed
     this.verbose = verbose
     this.debug = debug
+    this.warmupCache = warmupCache
   }
 }
 

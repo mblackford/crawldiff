@@ -25,6 +25,7 @@ async function execute (start: string, comparison: string): Promise<void> {
     program.detailed == true,
     program.verbose == true,
     program.debug == true,
+    program.warmupCache == true,
   )
 
   const logger = new Logger(config)
@@ -43,6 +44,7 @@ async function execute (start: string, comparison: string): Promise<void> {
   logger.debug('Detailed:', config.detailed)
   logger.debug('Verbose:', config.verbose)
   logger.debug('Debug:', config.debug)
+  logger.debug('Warmup Cache:', config.warmupCache)
   logger.debug('')
 
   const controller = new Controller(config, logger)
@@ -74,6 +76,7 @@ async function run() {
     .option('-d, --detailed', 'report full detailed diffs for each problem')
     .option('-V, --verbose', 'provide more detailed output while running')
     .option('-D, --debug', 'provide debug level output while running')
+    .option('-w, --warmup-cache', 'makes two requests to each URL and compares the second.  This is to ensure you are always comparing the warmed version of the page')
     .action(execute)
     .parse(process.argv)
 }
