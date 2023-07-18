@@ -37,17 +37,18 @@ Arguments:
 
 Options:
 
-| Option                       | Description                                                         |
-| ---------------------------- | ------------------------------------------------------------------- |
-|  -v, --version               | output the version number                                           |
-|  -s, --similarity <0.01-1.0> | specifiy the minimum required similarity between hosts (default: 1) |
-|  -t, --timeout <integer>     | the maximum time in seconds to run the crawler (default: 60)        |
-|  -r, --resources             | include static resources (such as scripts and styles) in comparison |
-|  -d, --detailed              | report full detailed diffs for each problem                         |
-|  -V, --verbose               | provide more detailed output while running                          |
-|  -D, --debug                 | provide debug level output while running                            |
-|  -h, --help                  | display help for command                                            |
-
+| Option                      | Description                                                                                                                                     |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| -v, --version               | output the version number                                                                                                                       |
+| -s, --similarity <0.01-1.0> | specifiy the minimum required similarity between hosts (default: 1)                                                                             |
+| -t, --timeout <integer>     | the maximum time in seconds to run the crawler (default: 60)                                                                                    |
+| -r, --resources             | include static resources (such as scripts and styles) in comparison                                                                             |
+| -d, --detailed              | report full detailed diffs for each problem                                                                                                     |
+| -m, --mobile                | identify as a mobile device via user-agent                                                                                                      |
+| -w, --warmup-cache          | makes two requests to each URL and compares only the second. This ensures that you are always comparing the warmed (cached) version of the page |
+| -V, --verbose               | provide more detailed output while running                                                                                                      |
+| -D, --debug                 | provide debug level output while running                                                                                                        |
+| -h, --help                  | display help for command                                                                                                                        |
 
 ## Copyright / License
 

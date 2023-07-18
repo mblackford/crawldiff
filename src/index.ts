@@ -20,10 +20,12 @@ async function execute (start: string, comparison: string): Promise<void> {
     comparison,
     program.similarity,
     program.timeout,
+    program.mobile == true,
     program.resources == true,
     program.detailed == true,
     program.verbose == true,
     program.debug == true,
+    program.warmupCache == true,
   )
 
   const logger = new Logger(config)
@@ -32,16 +34,17 @@ async function execute (start: string, comparison: string): Promise<void> {
   logger.info(` - comparing to host ${config.comparisonHost}`)
   logger.info('')
 
-  logger.debug('Start:', start)
-  logger.debug('Comparison:', comparison)
-  logger.debug('Similarity:', program.similarity)
-  logger.debug('Timeout:', program.timeout)
-  logger.debug('User-Agent:', program['user-agent'])
+  logger.debug('Start:', config.startingUri)
+  logger.debug('Comparison:', config.comparisonHost)
+  logger.debug('Similarity:', config.similarity)
+  logger.debug('Timeout:', config.timeout)
+  logger.debug('User-Agent:', config.userAgent)
   logger.debug('Cookies:', program.cookies)
-  logger.debug('Include Resources:', program.resources)
-  logger.debug('Detailed:', program.detailed)
-  logger.debug('Verbose:', program.verbose)
-  logger.debug('Debug:', program.debug)
+  logger.debug('Include Resources:', config.resources)
+  logger.debug('Detailed:', config.detailed)
+  logger.debug('Verbose:', config.verbose)
+  logger.debug('Debug:', config.debug)
+  logger.debug('Warmup Cache:', config.warmupCache)
   logger.debug('')
 
   const controller = new Controller(config, logger)
@@ -66,12 +69,14 @@ async function run() {
     })
     .option('-s, --similarity <0.01-1.0>', 'specifiy the minimum required similarity between hosts', (n: any) => parseFloat(n), 1.0)
     .option('-t, --timeout <integer>', 'the maximum time in seconds to run the crawler', (n: any) => parseInt(n), 60)
+    .option('-m, --mobile', 'identify as a mobile device')
     // .option('-u, --user-agent <string>', 'set a custom User-Agent string')
     // .option('-c, --cookies <string>', 'add a custom cookie header string to requests')
     .option('-r, --resources', 'include static resources (such as scripts and styles) in comparison')
     .option('-d, --detailed', 'report full detailed diffs for each problem')
     .option('-V, --verbose', 'provide more detailed output while running')
     .option('-D, --debug', 'provide debug level output while running')
+    .option('-w, --warmup-cache', 'makes two requests to each URL and compares the second.  This is to ensure you are always comparing the warmed version of the page')
     .action(execute)
     .parse(process.argv)
 }

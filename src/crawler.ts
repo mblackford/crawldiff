@@ -27,12 +27,16 @@ class Crawler {
     this.store.markCrawled(link)
 
     // Load the original entity
-    const original = await this.fetcher.loadEntity(link)
+    const originalPromise = this.fetcher.loadEntity(link)
 
     // Load the comparison entity
     const comparisonUri = this.config.comparisonHost + link.pathname()
     const comparisonLink = new Link(comparisonUri, link.type)
-    const comparison = await this.fetcher.loadEntity(comparisonLink)
+    const comparisonPromise = this.fetcher.loadEntity(comparisonLink)
+
+    // Wait for the entities to finish loading
+    const original = await originalPromise
+    const comparison = await comparisonPromise
 
     // Only parse entities if they're html pages
     if (original.contentType?.toLowerCase().startsWith('text/html')) {

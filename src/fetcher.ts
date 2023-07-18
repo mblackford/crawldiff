@@ -7,9 +7,6 @@ import Entity from './entity'
 import Link from './link'
 import Logger from './logger'
 
-const packageJson = require('../package.json')
-const USER_AGENT = `${packageJson.name}/${packageJson.version}`
-
 class Fetcher {
   readonly config: Config
   readonly logger: Logger
@@ -20,9 +17,13 @@ class Fetcher {
   }
 
   async loadEntity(link: Link): Promise<Entity> {
-    this.logger.debug(`    ... Loading ${link.uri}`)
-
     const headers = this.createHeaders()
+    if (this.config.warmupCache) {
+      this.logger.debug(`    ... Warming up ${link.uri}`)
+      await fetch(link.uri, { 'headers': headers })
+    }
+
+    this.logger.debug(`    ... Loading ${link.uri}`)
     const response = await fetch(link.uri, { 'headers': headers })
     const body = await response.text()
     const contentType = response.headers.get('Content-Type')
@@ -32,7 +33,7 @@ class Fetcher {
 
   private createHeaders() {
     return {
-      'User-Agent': USER_AGENT,
+      'User-Agent': this.config.userAgent
     }
   }
 }
